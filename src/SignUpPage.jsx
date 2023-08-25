@@ -2,12 +2,13 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FormikInput from "./FormikInput";
 import axios from "axios";
 import { toast } from "react-toastify";
 
 function SignUpPage() {
+  const navigate = useNavigate();
   function handelCallAPI(values) {
     axios
       .post("  https://myeasykart.codeyogi.io/signup ", {
@@ -22,6 +23,7 @@ function SignUpPage() {
         toast.success("Regiter Successfull", {
           position: toast.POSITION.TOP_RIGHT,
         });
+        navigate("/");
       })
       .catch(() => {
         toast.error("Regiter Failed", {
