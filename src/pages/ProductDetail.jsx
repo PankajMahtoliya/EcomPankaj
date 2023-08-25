@@ -9,12 +9,12 @@ import { getProductData } from "../Api";
 import NotFound from "../NotFound";
 
 // eslint-disable-next-line react/prop-types
-function ProductDetail() {
+function ProductDetail({ setCount, count, handelAddToCart }) {
   const id = +useParams().id;
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(true);
-  const [count, setCount] = useState(1);
-  const [cartData, setcartData] = useState({});
+  // const [count, setCount] = useState(1);
+  // const [cartData, setcartData] = useState({});
 
   useEffect(
     function () {
@@ -30,34 +30,23 @@ function ProductDetail() {
   function handelCountChange(event) {
     setCount(+event.target.value);
   }
-  // const [items, setItems] = useState();
 
   function handelButtonClick() {
-    // setItems(JSON.parse(localStorage.getItem("items")));
-    setcartData({ id, count });
+    handelAddToCart(id, count);
   }
-  // console.log(cartData, "sdfg");
+
   function handelCartChange() {
     setCount(1);
   }
-  // const item = JSON.stringify(items);
-  const cartDatas = JSON.stringify(cartData);
-  // useEffect(() => {
-  //   let
-  //   console.log(items);
-  // }, []);
-  useEffect(() => {
-    localStorage.setItem("items", cartDatas);
-  }, [cartData, cartDatas]);
+
   if (loading) {
     return <Loading />;
   }
-  // console.log(localStorage.getItem("items"));
+
   if (!product) {
     return <NotFound />;
   }
 
-  console.log(count, id, "hllooooo");
   return (
     <>
       <div className="px-6 py-12 bg-gray-300 min-h-screen">

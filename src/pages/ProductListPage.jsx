@@ -50,7 +50,6 @@ function ProductListPage() {
   if (loading) {
     return <Loading />;
   }
-  console.log(localStorage.getItem("user"));
 
   return (
     <div className="px-4 py-2 bg-gray-200 md:px-12">

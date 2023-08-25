@@ -11,7 +11,7 @@ import { FiArrowLeft } from "react-icons/fi";
 function Profile() {
   const user = localStorage.getItem("user");
   const me = JSON.parse(user);
-  console.log(me);
+
   return (
     <div className="flex bg-slate-200 justify-center h-screen  ">
       <div className="bg-[#3b628b] w-max  h-max  px-4 py-5 rounded-xl mt-56 shadow-md-">

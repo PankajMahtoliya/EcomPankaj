@@ -18,7 +18,6 @@ function Loginpage() {
       .then((response) => {
         const { user, token } = response.data;
         localStorage.setItem("Token", token);
-        // // console.log(user, "sfdfg");
 
         const users = JSON.stringify(user);
         localStorage.setItem("user", users);
