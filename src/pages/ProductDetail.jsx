@@ -88,7 +88,7 @@ function ProductDetail({ setCount, count, handelAddToCart }) {
               </h1>
               <p className="text-xl ">{product.brand}</p>
               <h1 className="mb-4 text-xl font-medium lg:text-3xl">
-                Rs. {product.price}
+                $. {product.price}
               </h1>
               <p className="text-xl ">{product.description}</p>
               <div className="mt-6">
